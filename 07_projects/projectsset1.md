@@ -1,6 +1,10 @@
+
+https://stackblitz.com/edit/dom-project-chaiaurcode?file=index.html
+
+
 source code 
 
-console.log("hitesh")
+console.log("ishu")
 const buttons = document.querySelectorAll('.button');
 const body = document.querySelector('body');
 

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure aur chai</title>
+</head>
+<body style="background-color: #313131;">
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+</body>
+
+    <script>
+    // function init() {
+    //     let name = "Mozilla"; 
+    //     function displayName() {
+    //         console.log(name); 
+    //     }
+    //     displayName();
+    // }
+    // init();
+
+    // function outer(){
+    //     let username = "hitesh"
+    //     console.log("OUTER", secret);
+    //     function inner(){
+    //         let secret = "my123"
+    //         console.log("inner", username);
+    //     }
+    //     function innerTwo(){
+    //         console.log("innerTwo", username);
+    //         console.log(secret);
+    //     }
+    //     inner()
+    //     innerTwo()
+
+    // }
+    // outer()
+    // console.log("TOO OUTER", username);
+
+
+    // function makeFunc() {
+    //     const name = "Mozilla";
+    //     function displayName() {
+    //         console.log(name);
+    //     }
+    //     return displayName;
+    // }
+
+    // const myFunc = makeFunc();
+    // myFunc();
+
+    </script>
+    <script>
+        // document.getElementById("orange").onclick = function(){
+        //     document.body.style.backgroundColor = `orange`
+        // }
+        // document.getElementById("green").onclick = function(){
+        //     document.body.style.backgroundColor = `green`
+        // }
+
+        function clickHandler(color){
+            // document.body.style.backgroundColor = `${color}`
+
+            return function(){
+                document.body.style.backgroundColor = `${color}`
+            }
+        }
+
+        document.getElementById('orange').onclick = clickHandler("orange")
+        document.getElementById('green').onclick = clickHandler("green")
+
+    </script>
+</html>
+
+<!-- 
+
+
+
+JavaScript mein closure ek aisi function hoti hai jo apne outer function ke variables aur scope tak access rakhti hai, chahe outer function apna execution complete kar chuka ho. Matlab, closure woh inner function hai jo us function ke scope ko "yaad" rakhta hai jisme woh banaya gaya tha, aur us scope ke variables ko modify ya access kar sakta hai.
+
+Example ke saath samajhte hain
+javascript
+function outer() {
+  let outerVar = "Main outer function ka variable hoon!";
+  
+  function inner() {
+    console.log(outerVar);  // outerVar ko access karta hai
+  }
+  
+  return inner;
+}
+
+const closureFunc = outer();  // outer function call hua, inner return hua
+
+closureFunc();  // Output: Main outer function ka variable hoon!
+Is example mein:
+
+outer() function ke andar outerVar variable hai.
+
+inner() function ke andar hum outerVar ko access kar rahe hain.
+
+outer() function jab call hota hai, toh woh inner function ko return karta hai.
+
+Jab hum closureFunc() call karte hain, jo ki inner function hai, woh ab bhi outerVar ko access kar sakta hai, chahe outer() ka execution khatam ho chuka ho. -->
